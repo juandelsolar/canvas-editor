@@ -1,0 +1,35 @@
+import { EditorZone, ElementType, ListStyle, ListType, PageMode, TitleLevel } from '..';
+import { RowFlex } from '../dataset/enum/Row';
+import { IControl } from './Control';
+import { IEditorResult } from './Editor';
+export interface IRangeStyle {
+    type: ElementType | null;
+    undo: boolean;
+    redo: boolean;
+    painter: boolean;
+    font: string;
+    size: number;
+    bold: boolean;
+    italic: boolean;
+    underline: boolean;
+    strikeout: boolean;
+    color: string | null;
+    highlight: string | null;
+    rowFlex: RowFlex | null;
+    rowMargin: number;
+    dashArray: number[];
+    level: TitleLevel | null;
+    listType: ListType | null;
+    listStyle: ListStyle | null;
+    groupIds: string[] | null;
+}
+export declare type IRangeStyleChange = (payload: IRangeStyle) => void;
+export declare type IVisiblePageNoListChange = (payload: number[]) => void;
+export declare type IIntersectionPageNoChange = (payload: number) => void;
+export declare type IPageSizeChange = (payload: number) => void;
+export declare type IPageScaleChange = (payload: number) => void;
+export declare type ISaved = (payload: IEditorResult) => void;
+export declare type IContentChange = () => void;
+export declare type IControlChange = (payload: IControl | null) => void;
+export declare type IPageModeChange = (payload: PageMode) => void;
+export declare type IZoneChange = (payload: EditorZone) => void;
